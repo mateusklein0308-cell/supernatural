@@ -95,15 +95,19 @@ footer span {
 
 /* CAPA PRINCIPAL */
 .hero {
+    .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 120px 10%;
+
     background:
-        linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.45)),
-        linear-gradient(135deg, #111111, #401010, #080808);
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+        url("imagens/supernatural.jpg");
+
     background-size: cover;
     background-position: center;
+}
 }
 
 .hero-content {
