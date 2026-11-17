@@ -14,13 +14,16 @@
     --secondary: #bdbdbd;
     --red: #a71919;
     --red-light: #e02b2b;
+    --header: #080808;
+    --section-dark: #0b0b0b;
+    --border: #333333;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--background);
     color: var(--text);
-    transition: 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 body.light-theme {
@@ -28,17 +31,20 @@ body.light-theme {
     --card: #ffffff;
     --text: #171717;
     --secondary: #555555;
+    --header: #ffffff;
+    --section-dark: #e2e2e2;
+    --border: #cccccc;
 }
 
 /* MENU */
 header {
     width: 100%;
-    background: #080808;
+    background: var(--header);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar {
@@ -53,7 +59,7 @@ header {
 .logo {
     font-size: 23px;
     font-weight: bold;
-    color: white;
+    color: var(--text);
     text-decoration: none;
     letter-spacing: 2px;
 }
@@ -70,7 +76,7 @@ footer span {
 }
 
 .nav-links a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
     font-size: 14px;
     transition: 0.3s;
@@ -84,7 +90,7 @@ footer span {
 .menu-toggle {
     border: none;
     background: transparent;
-    color: white;
+    color: var(--text);
     font-size: 23px;
     cursor: pointer;
 }
@@ -95,19 +101,21 @@ footer span {
 
 /* CAPA PRINCIPAL */
 .hero {
-    .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 120px 10%;
 
     background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
-        url("imagens/supernatural.jp");
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.85)
+        ),
+        url("https://images.everyeye.it/img-notizie/supernatural-lawrence-kansas-ufficialmente-citta-origine-winchester-v3-481922.jpg");
 
     background-size: cover;
     background-position: center;
-}
+    background-repeat: no-repeat;
 }
 
 .hero-content {
@@ -157,6 +165,7 @@ footer span {
 /* SEÇÕES */
 .section {
     padding: 100px 8%;
+    scroll-margin-top: 75px;
 }
 
 .section-title {
@@ -192,20 +201,37 @@ footer span {
 }
 
 .history-image {
+    position: relative;
     min-height: 400px;
     border-radius: 10px;
-    background:
-        linear-gradient(0deg, rgba(0,0,0,0.85), transparent),
-        linear-gradient(135deg, #531515, #171717, #333333);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.history-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: end;
     padding: 30px;
-    border: 1px solid #444;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.85)
+    );
 }
 
 .image-overlay span {
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     letter-spacing: 3px;
 }
@@ -224,7 +250,7 @@ footer span {
 
 /* PERSONAGENS */
 .characters-section {
-    background: #0b0b0b;
+    background: var(--section-dark);
 }
 
 .character-grid {
@@ -238,9 +264,9 @@ footer span {
 .character-card {
     position: relative;
     background: var(--card);
-    padding: 30px 22px;
+    padding: 20px;
     border-radius: 8px;
-    border: 1px solid #333;
+    border: 1px solid var(--border);
     transition: 0.3s;
     overflow: hidden;
 }
@@ -255,14 +281,21 @@ footer span {
     position: absolute;
     top: 10px;
     right: 15px;
-    color: #444;
+    z-index: 2;
+    color: white;
     font-size: 30px;
     font-weight: bold;
+    text-shadow: 2px 2px 5px black;
 }
 
-.character-icon {
-    font-size: 45px;
+.character-image {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 5px;
     margin-bottom: 20px;
+    display: block;
 }
 
 .character-card h3 {
@@ -331,6 +364,14 @@ footer span {
     line-height: 1.6;
 }
 
+.impala-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* FRASE */
 .quote {
     text-align: center;
     margin: 80px auto 0;
@@ -353,7 +394,7 @@ footer span {
 
 /* RODAPÉ */
 footer {
-    background: #050505;
+    background: var(--header);
     text-align: center;
     padding: 45px 20px;
 }
@@ -364,7 +405,7 @@ footer h2 {
 }
 
 footer p {
-    color: #aaaaaa;
+    color: var(--secondary);
     margin-bottom: 15px;
 }
 
@@ -374,7 +415,7 @@ footer p {
 }
 
 /* RESPONSIVIDADE */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .character-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -385,6 +426,7 @@ footer p {
 }
 
 @media (max-width: 650px) {
+
     .navbar {
         flex-wrap: wrap;
     }
@@ -412,6 +454,7 @@ footer p {
 
     .hero {
         padding: 120px 7%;
+        background-position: center;
     }
 
     .hero-text {
@@ -422,7 +465,26 @@ footer p {
         padding: 75px 6%;
     }
 
-    .history-image {
+    .history-image,
+    .history-image img {
         min-height: 280px;
+    }
+
+    .character-image {
+        height: 300px;
+    }
+
+    .quote p {
+        font-size: 20px;
+    }
+}
+
+/* ACESSIBILIDADE */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
     }
 }
