@@ -100,7 +100,7 @@ footer span {
 }
 
 /* CAPA PRINCIPAL */
-.hero {
+    .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -111,13 +111,12 @@ footer span {
             rgba(0, 0, 0, 0.65),
             rgba(0, 0, 0, 0.85)
         ),
-        url("https://images.everyeye.it/img-notizie/supernatural-lawrence-kansas-ufficialmente-citta-origine-winchester-v3-481922.jpg");
+        url("imagens/elenco.jpg");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 .hero-content {
     max-width: 700px;
 }
